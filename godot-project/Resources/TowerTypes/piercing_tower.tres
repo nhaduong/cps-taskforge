@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://bikwghutoewx"]
+
+[ext_resource type="Texture2D" uid="uid://bgeixvgeegstr" path="res://Art/tower_icons/piercing_tower_icon.png" id="1_u0cnd"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_3p6m6"]
+
+[resource]
+script = ExtResource("2_3p6m6")
+display_name = "Piercing"
+fire_animation = "fire11"
+idle_animation = "idle11"
+tower_type = 10
+description = "A tower that damages all enemies in its path."
+fireRate = 0.3
+dmg = 1.6
+duration = 1.0
+range = 13
+icon = ExtResource("1_u0cnd")
+cost = 250
+element = -1
+range_upgrade_costs = [35, 50, 90]
+damage_upgrade_costs = [40, 80, 120]
+firerate_upgrade_costs = [40, 80, 120]
+duration_upgrade_costs = [10, 30, 100, 300, 450]
+hotkey_label = ""
+tower_to_instantiate = "piercing"

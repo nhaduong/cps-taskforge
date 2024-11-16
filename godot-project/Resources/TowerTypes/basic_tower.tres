@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://bfvlcalyoxi66"]
+
+[ext_resource type="Texture2D" uid="uid://d3asi2ikvmbhq" path="res://Art/tower_icons/basic_tower_icon.png" id="1_slhpj"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_q7o83"]
+
+[resource]
+script = ExtResource("2_q7o83")
+display_name = "Basic"
+fire_animation = "fire1"
+idle_animation = "idle1"
+tower_type = 0
+description = "A tower that attacks enemies."
+fireRate = 0.8
+dmg = 0.8
+duration = 1.0
+range = 22
+icon = ExtResource("1_slhpj")
+cost = 110
+element = -1
+range_upgrade_costs = [20, 40, 80]
+damage_upgrade_costs = [20, 30, 90]
+firerate_upgrade_costs = [20, 30, 90]
+duration_upgrade_costs = [20, 40, 80, 120, 160]
+hotkey_label = ""
+tower_to_instantiate = "base"

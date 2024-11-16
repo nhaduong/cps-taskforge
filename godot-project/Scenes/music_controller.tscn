@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl8f13vbpc0j1"]
+
+[ext_resource type="Script" path="res://Scenes/MusicController.gd" id="1_o2y7o"]
+
+[node name="MusicController" type="Node"]
+script = ExtResource("1_o2y7o")
+
+[node name="Tween" type="Node" parent="."]

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=5 format=3 uid="uid://bvyjiwkuvkjkq"]
+
+[ext_resource type="Script" path="res://Resources/LevelData.gd" id="1_drwxk"]
+[ext_resource type="PackedScene" uid="uid://dfxltsp3pioh6" path="res://ReferenceGameDemo/Map.tscn" id="1_k4dac"]
+[ext_resource type="Script" path="res://Resources/Grid.gd" id="2_fqucg"]
+
+[sub_resource type="Resource" id="Resource_2krvk"]
+script = ExtResource("2_fqucg")
+size = Vector2(20, 20)
+cell_size = Vector2(64, 64)
+
+[resource]
+script = ExtResource("1_drwxk")
+Gold = 2000
+Gold_RTS = 2000
+Health = 10
+AvailableUnits = Array[Dictionary]([])
+Map = ExtResource("1_k4dac")
+grid = SubResource("Resource_2krvk")
+valid_buy_tiles = Array[Vector2i]([])
+wave_timer_minutes_RTS = 5
+wave_timer_seconds_RTS = 0
+wave_timer_minutes = 50
+wave_timer_seconds = 50
+num_rounds_for_this_level_override = 100

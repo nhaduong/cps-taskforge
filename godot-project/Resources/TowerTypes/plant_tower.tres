@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://crtm11is5r437"]
+
+[ext_resource type="Texture2D" uid="uid://dgjrqrrp7lcb8" path="res://Art/tower_icons/plant_tower_icon.png" id="1_ikenc"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_qvga1"]
+
+[resource]
+script = ExtResource("2_qvga1")
+display_name = "Thorny"
+fire_animation = "fire10"
+idle_animation = "idle10"
+tower_type = 9
+description = "A tower that spawns a damaging sprout in the enemies' path."
+fireRate = 0.7
+dmg = 0.7
+duration = 2.4
+range = 15
+icon = ExtResource("1_ikenc")
+cost = 180
+element = -1
+range_upgrade_costs = [30, 50, 100]
+damage_upgrade_costs = [40, 100, 160]
+firerate_upgrade_costs = [50, 100, 180]
+duration_upgrade_costs = [50, 90, 150]
+hotkey_label = ""
+tower_to_instantiate = "plant"

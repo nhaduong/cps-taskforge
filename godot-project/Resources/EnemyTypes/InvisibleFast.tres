@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://1jufqbryoscr"]
+
+[ext_resource type="Script" path="res://Resources/Enemy.gd" id="1_8nlgg"]
+
+[resource]
+script = ExtResource("1_8nlgg")
+walking_animation = "walk"
+die_animation = "die"
+speed = 185
+health = 2.08165e-12
+damage = 0
+score_value = 0
+money_earned_on_death = 0
+fireResistance = 0.3
+waterResistance = 0.3
+earthResistance = 0.3
+airResistance = 0.3

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjininu4s3hcp"]
+
+[ext_resource type="Script" path="res://ReferenceGameDemo/PlayerCharacter.gd" id="1_bevx1"]
+[ext_resource type="Script" path="res://ReferenceGameDemo/Cursor.gd" id="3_r2sbq"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_bevx1")
+
+[node name="Cursor" type="Node2D" parent="."]
+visible = false
+z_index = 10
+script = ExtResource("3_r2sbq")
+
+[node name="ColorRect" type="ColorRect" parent="Cursor"]
+z_index = 1
+offset_right = 115.0
+offset_bottom = 28.0
+mouse_filter = 2
+color = Color(0.933333, 0.494118, 0.34902, 1)
+
+[node name="username" type="Label" parent="Cursor/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "username"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Cursor"]
+wait_time = 0.1

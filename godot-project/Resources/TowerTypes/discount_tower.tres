@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://3xfm4cuo4vbw"]
+
+[ext_resource type="Texture2D" uid="uid://1pu2v86ulkmj" path="res://Art/tower_icons/discount_tower_icon.png" id="1_qtl3p"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_qd455"]
+
+[resource]
+script = ExtResource("2_qd455")
+display_name = "Discount"
+fire_animation = "fire9"
+idle_animation = "idle9"
+tower_type = 8
+description = "A tower that makes upgrades cheaper."
+fireRate = 3
+dmg = 2.0
+duration = 1.0
+range = 13
+icon = ExtResource("1_qtl3p")
+cost = 450
+element = 2
+range_upgrade_costs = [75, 125, 180, 330, 450]
+damage_upgrade_costs = [50, 100, 170]
+firerate_upgrade_costs = [50, 100, 150, 200, 250]
+duration_upgrade_costs = [50, 100, 150]
+hotkey_label = ""
+tower_to_instantiate = "discount"

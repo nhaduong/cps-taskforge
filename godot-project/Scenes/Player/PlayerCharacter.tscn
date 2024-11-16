@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm4abharn36y7"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player_character.gd" id="1_56kuy"]
+[ext_resource type="PackedScene" uid="uid://bc6led478ht2l" path="res://Scenes/Player/Cursor.tscn" id="2_yrymy"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_56kuy")
+
+[node name="Cursor" parent="." instance=ExtResource("2_yrymy")]
+z_index = 10

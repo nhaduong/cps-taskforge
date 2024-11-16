@@ -1,0 +1,59 @@
+===Tower SFX===
+https://pixabay.com/sound-effects/waving-torch-85569/
+https://pixabay.com/sound-effects/fireball-whoosh-2-179126/
+https://pixabay.com/sound-effects/wind-1-44149/
+https://pixabay.com/sound-effects/black-gong-28936/
+https://pixabay.com/sound-effects/magic-smite-6012/
+
+===Enemy SFX===
+https://pixabay.com/sound-effects/086553-bullet-hit-39853/
+https://pixabay.com/sound-effects/pig-grunt-100272/
+https://pixabay.com/sound-effects/monster-death-grunt-131480/
+https://pixabay.com/sound-effects/bubbling-6184/
+
+===Other SFX===
+https://pixabay.com/sound-effects/error-message-182475/
+
+===Music===
+https://pixabay.com/music/upbeat-chill-abstract-intention-12099/
+https://pixabay.com/music/corporate-this-minimal-technology-pure-12327/
+
+===Tower Sprites===
+https://kenney.nl/assets/tower-defense-top-down
+https://pimen.itch.io/magical-animation-effects
+https://foozlecc.itch.io/spire-tower-pack-1
+https://foozlecc.itch.io/spire-tower-pack-2
+https://foozlecc.itch.io/spire-tower-pack-4
+https://foozlecc.itch.io/trap-pack
+https://frakassets.itch.io/free-glowing-crystal
+https://jeevo.itch.io/plants
+https://digigrand.itch.io/pixel-art-chest
+https://kingkelp.itch.io/old-cannon
+https://creativekind.itch.io/obelisk
+https://ruskom.itch.io/moon-tower-asset
+
+===Bullet Sprites===
+https://bdragon1727.itch.io/free-effect-and-bullet-16x16
+https://jeevo.itch.io/plants
+https://fightswithbears.itch.io/2d-health-and-ammo-pickups
+
+===Enemy Sprites===
+https://free-game-assets.itch.io/free-2d-orcs-sprite-sheets
+<a href="https://www.flaticon.com/free-icons/shield" title="shield icons">Shield icons created by DinosoftLabs - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/shoes" title="shoes icons">Shoes icons created by Freepik - Flaticon</a>
+
+===Tiles===
+https://kenney.nl/assets/tower-defense-top-down
+
+===UI===
+https://prinbles.itch.io/robin
+
+===VFX===
+https://bdragon1727.itch.io/pixel-holy-spell-effect-32x32-pack-3
+https://untiedgames.itch.io/super-pixel-effects-mini-pack-1
+https://dreams-circle.itch.io/fa-01
+https://ninjikin.itch.io/treasure
+https://xyezawr.itch.io/gif-free-pixel-effects-pack-5-blood-effects
+https://karlote.itch.io/star-lighting-effect
+<a href="https://www.freepik.com/free-vector/animation-sprite-sheet-bomb-explosion-sequence_29084609.htm#query=explosion%20sprite&position=0&from_view=keyword&track=ais&uuid=b0898151-6afd-4edb-9de4-dfae07b23922">Image by upklyak</a> on Freepik
+Image by <a href="https://www.freepik.com/free-vector/hand-drawn-sparkling-stars-collection_16139383.htm#query=sparkle%20sprite&position=19&from_view=keyword&track=ais&uuid=783f4afd-28ce-4913-87b6-3f14315d195d">Freepik</a>

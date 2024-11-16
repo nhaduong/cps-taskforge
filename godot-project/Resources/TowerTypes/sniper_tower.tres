@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://dk57yq2wms2oj"]
+
+[ext_resource type="Texture2D" uid="uid://dymdfjsfumwoj" path="res://Art/tower_icons/sniper_tower_icon.png" id="1_a4is4"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_w4v7y"]
+
+[resource]
+script = ExtResource("2_w4v7y")
+display_name = "Sniper"
+fire_animation = "fire4"
+idle_animation = "idle4"
+tower_type = 3
+description = "A tower that does more damage to faster enemies."
+fireRate = 1.4
+dmg = 0.4
+duration = 1.0
+range = 20.0
+icon = ExtResource("1_a4is4")
+cost = 180
+element = 1
+range_upgrade_costs = [15, 30, 90]
+damage_upgrade_costs = [40, 60, 100]
+firerate_upgrade_costs = [30, 60, 120]
+duration_upgrade_costs = [0, 30, 100, 300, 450]
+hotkey_label = ""
+tower_to_instantiate = "sniper"

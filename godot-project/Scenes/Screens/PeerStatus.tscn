@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://p5f70y6p105u"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/PeerStatus.gd" id="1_o5o41"]
+
+[node name="PeerStatus" type="VBoxContainer"]
+script = ExtResource("1_o5o41")
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://b64es6up8fd6u"]
+
+[ext_resource type="Texture2D" uid="uid://b4j613a03l01l" path="res://Art/shielded.png" id="1_sqf8r"]
+[ext_resource type="Script" path="res://Resources/Enemy.gd" id="2_i8mtl"]
+
+[resource]
+script = ExtResource("2_i8mtl")
+walking_animation = "walk3"
+die_animation = "die3"
+icon = ExtResource("1_sqf8r")
+speed = 80
+health = 130.0
+damage = 1
+score_value = 200
+money_earned_on_death = 300
+fireResistance = 0.3
+waterResistance = 0.3
+earthResistance = 0.3
+airResistance = 0.3

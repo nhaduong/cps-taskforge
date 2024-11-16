@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://crwruvut0ff7"]
+
+[ext_resource type="Script" path="res://Scenes/TowerInfoPopup.gd" id="1_v6if5"]
+
+[node name="TowerInfoPopup" type="Panel" node_paths=PackedStringArray("firerate_label", "effect_dur_label", "damage_label", "range_label", "name_label", "buy_label", "description_label", "hotkey_label")]
+z_index = 5
+offset_left = 1202.0
+offset_top = 15.0
+offset_right = 1482.0
+offset_bottom = 395.0
+script = ExtResource("1_v6if5")
+firerate_label = NodePath("VBoxContainer/firerate")
+effect_dur_label = NodePath("VBoxContainer/effect dur")
+damage_label = NodePath("VBoxContainer/damage")
+range_label = NodePath("VBoxContainer/range")
+name_label = NodePath("name")
+buy_label = NodePath("buy")
+description_label = NodePath("description")
+hotkey_label = NodePath("hotkey")
+
+[node name="name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 376.0
+theme_override_colors/default_color = Color(0.898039, 0.792157, 0.121569, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Freeze Tower"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 36.0
+offset_right = 279.0
+offset_bottom = 236.0
+theme_override_constants/separation = 0
+
+[node name="range" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "blahbity blah blah"
+
+[node name="damage" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "blahbity blah blah"
+
+[node name="firerate" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "blahbity blah blah"
+
+[node name="effect dur" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "Effect Strength: 1.0 (+1.00) (x1.00)"
+
+[node name="description" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -216.0
+offset_right = 275.0
+offset_bottom = -48.19
+grow_vertical = 0
+bbcode_enabled = true
+text = "blahbity blah blah"
+
+[node name="hotkey" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 304.0
+offset_right = 204.0
+offset_bottom = 329.0
+bbcode_enabled = true
+text = "blahbity blah blah"
+
+[node name="buy" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -82.0
+offset_right = -10.07
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.898039, 0.792157, 0.121569, 1)
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "$400"
+text_direction = 2

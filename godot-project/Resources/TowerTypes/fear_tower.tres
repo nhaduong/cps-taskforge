@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://cp8hrfvrpbeou"]
+
+[ext_resource type="Texture2D" uid="uid://cnvgaepra7bo" path="res://Art/tower_icons/fear_tower_icon.png" id="1_xuafg"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_xqiio"]
+
+[resource]
+script = ExtResource("2_xqiio")
+display_name = "Fear"
+fire_animation = "fire7"
+idle_animation = "idle7"
+tower_type = 6
+description = "An tower that frightens enemies near it."
+fireRate = 0.7
+dmg = 1.0
+duration = 0.7
+range = 13
+icon = ExtResource("1_xuafg")
+cost = 350
+element = -1
+range_upgrade_costs = [50, 90, 150, 220]
+damage_upgrade_costs = [30, 70, 120, 175, 450]
+firerate_upgrade_costs = [50, 100, 170]
+duration_upgrade_costs = [50, 100, 170]
+hotkey_label = ""
+tower_to_instantiate = "fear"

@@ -1,0 +1,234 @@
+[gd_scene load_steps=4 format=3 uid="uid://wqp1k12jwgc8"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/ReadyScreen.gd" id="1_cwdm3"]
+[ext_resource type="PackedScene" uid="uid://p5f70y6p105u" path="res://Scenes/Screens/PeerStatus.tscn" id="2_m2ufl"]
+[ext_resource type="Texture2D" uid="uid://dby4we3paxh1o" path="res://Theme/bg_resize.jpg" id="2_mjn1j"]
+
+[node name="ReadyScreen" type="Control" node_paths=PackedStringArray("start_game_button", "ready_button", "team_name_entry", "team_container", "team_name_preview", "moderator_controls", "select_level_container", "has_moderator", "rts_mode", "is_online_exp", "ready_btn_toggle", "current_level_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwdm3")
+start_game_button = NodePath("Panel/HBoxContainer/StartGame")
+ready_button = NodePath("Panel/HBoxContainer/ReadyButton")
+team_name_entry = NodePath("Panel/VBoxContainer2/team_container/TeamName")
+team_container = NodePath("Panel/VBoxContainer2/team_container")
+team_name_preview = NodePath("Panel/VBoxContainer2/teamname preview")
+moderator_controls = NodePath("Panel/ModeratorControls")
+select_level_container = NodePath("Panel/ModeratorControls/Level select")
+has_moderator = NodePath("Panel/ModeratorControls/Moderator")
+rts_mode = NodePath("Panel/ModeratorControls/RTS")
+is_online_exp = NodePath("Panel/ModeratorControls/OnlineExp")
+ready_btn_toggle = NodePath("Panel/ModeratorControls/ToggleReadyButtons")
+current_level_label = NodePath("Panel/ModeratorControls/CurrentLevel")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mjn1j")
+expand_mode = 1
+
+[node name="MatchIDContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.5
+offset_top = 218.0
+offset_right = 214.5
+offset_bottom = 289.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Panel/MatchIDContainer"]
+layout_mode = 2
+text = "match"
+
+[node name="MatchID" type="LineEdit" parent="Panel/MatchIDContainer"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+
+[node name="MatchCopyButton" type="Button" parent="Panel/MatchIDContainer"]
+layout_mode = 2
+text = "Copy match id"
+
+[node name="StatusContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 702.0
+offset_top = -24.5
+offset_right = 761.0
+offset_bottom = 24.5
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/StatusContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Players"
+
+[node name="PeerStatus" parent="Panel/StatusContainer" instance=ExtResource("2_m2ufl")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -125.53
+offset_right = 141.0
+offset_bottom = -54.53
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="ReadyButton" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+text = "I'm Ready!"
+
+[node name="StartGame" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+text = "Start Game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 64.0
+offset_right = 1267.0
+offset_bottom = 193.0
+theme_override_constants/separation = 15
+
+[node name="teamname preview" type="Label" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.619608, 0, 0.658824, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 50
+text = "Come up with a team name!"
+
+[node name="team_container" type="HBoxContainer" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="teamname label" type="Label" parent="Panel/VBoxContainer2/team_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Team Name"
+
+[node name="TeamName" type="LineEdit" parent="Panel/VBoxContainer2/team_container"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 2
+max_length = 20
+
+[node name="ModeratorControls" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level select" type="VBoxContainer" parent="Panel/ModeratorControls"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 866.13
+offset_right = 450.0
+offset_bottom = 1040.13
+
+[node name="Label" type="Label" parent="Panel/ModeratorControls/Level select"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Set starting level "
+
+[node name="Level Select" type="HBoxContainer" parent="Panel/ModeratorControls/Level select"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/ModeratorControls/Level select/Level Select"]
+custom_minimum_size = Vector2(163.57, 2.08165e-12)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ModeratorControls/Level select/Level Select"]
+layout_mode = 2
+text = "Set level"
+
+[node name="Round Select" type="HBoxContainer" parent="Panel/ModeratorControls/Level select"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/ModeratorControls/Level select/Round Select"]
+custom_minimum_size = Vector2(163.57, 2.08165e-12)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ModeratorControls/Level select/Round Select"]
+layout_mode = 2
+text = "Set round"
+
+[node name="Moderator" type="CheckButton" parent="Panel/ModeratorControls"]
+layout_mode = 0
+offset_right = 174.0
+offset_bottom = 71.0
+text = "Moderated"
+
+[node name="RTS" type="CheckButton" parent="Panel/ModeratorControls"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 174.0
+offset_bottom = 146.0
+text = "RTS"
+
+[node name="OnlineExp" type="CheckButton" parent="Panel/ModeratorControls"]
+layout_mode = 0
+offset_top = 145.0
+offset_right = 174.0
+offset_bottom = 216.0
+text = "OnlineExp"
+
+[node name="ToggleReadyButtons" type="CheckButton" parent="Panel/ModeratorControls"]
+layout_mode = 0
+offset_top = 216.0
+offset_right = 174.0
+offset_bottom = 287.0
+text = "Ready"
+
+[node name="CurrentLevel" type="Label" parent="Panel/ModeratorControls"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 814.0
+offset_right = 58.0
+offset_bottom = 835.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LEVEL
+ROUND"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Panel/MatchIDContainer/MatchCopyButton" to="." method="_on_match_copy_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="text_changed" from="Panel/VBoxContainer2/team_container/TeamName" to="." method="_on_team_name_text_changed"]
+[connection signal="pressed" from="Panel/ModeratorControls/Level select/Level Select/Button" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Panel/ModeratorControls/Level select/Round Select/Button" to="." method="_on_round_select_pressed"]
+[connection signal="toggled" from="Panel/ModeratorControls/Moderator" to="." method="_on_moderator_button_toggled"]
+[connection signal="toggled" from="Panel/ModeratorControls/RTS" to="." method="_on_rts_toggled"]
+[connection signal="toggled" from="Panel/ModeratorControls/OnlineExp" to="." method="_on_online_exp_toggled"]
+[connection signal="toggled" from="Panel/ModeratorControls/ToggleReadyButtons" to="." method="_on_toggle_ready_buttons_toggled"]

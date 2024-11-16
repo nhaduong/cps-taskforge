@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://ek8yvxx2g7v3"]
+
+[ext_resource type="Texture2D" uid="uid://xi6m6u7g6rn7" path="res://Art/tower_icons/freeze_tower_icon.png" id="1_ce0x5"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_3msu3"]
+
+[resource]
+script = ExtResource("2_3msu3")
+display_name = "Freeze"
+fire_animation = "fire3"
+idle_animation = "idle3"
+tower_type = 2
+description = "A tower that makes enemies sluggish."
+fireRate = 0.7
+dmg = 1.0
+duration = 0.7
+range = 13.0
+icon = ExtResource("1_ce0x5")
+cost = 350
+element = 2
+range_upgrade_costs = [50, 90, 150]
+damage_upgrade_costs = [30, 70, 120, 175, 450]
+firerate_upgrade_costs = [50, 100, 170]
+duration_upgrade_costs = [50, 100, 170]
+hotkey_label = ""
+tower_to_instantiate = "freeze"

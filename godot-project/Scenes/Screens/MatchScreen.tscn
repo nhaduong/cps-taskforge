@@ -1,0 +1,174 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqhf2l36x7ggp"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/MatchScreen.gd" id="1_0evbx"]
+[ext_resource type="Texture2D" uid="uid://dby4we3paxh1o" path="res://Theme/bg_resize.jpg" id="2_5pe6b"]
+[ext_resource type="FontFile" uid="uid://ig8kqkpp6f7a" path="res://Theme/fonts/Indie_Flower/IndieFlower-Regular.ttf" id="3_k40je"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g10y5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjdsn"]
+
+[node name="MatchScreen" type="Control" node_paths=PackedStringArray("enter_key_edit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0evbx")
+enter_key_edit = NodePath("PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer/HBoxContainer/LineEdit")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_5pe6b")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TextureRect"]
+custom_minimum_size = Vector2(2.08165e-12, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MatchPanel" type="Panel" parent="PanelContainer/TextureRect/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TextureRect/VBoxContainer/MatchPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PanelContainer/TextureRect/VBoxContainer/MatchPanel/HBoxContainer"]
+layout_mode = 2
+text = "Find at least"
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/TextureRect/VBoxContainer/MatchPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="MatchButton" type="Button" parent="PanelContainer/TextureRect/VBoxContainer/MatchPanel/HBoxContainer"]
+layout_mode = 2
+text = "Match me!"
+
+[node name="CreatePanel" type="Panel" parent="PanelContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g10y5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TextureRect/VBoxContainer/CreatePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -87.5
+offset_right = 302.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TextureRect/VBoxContainer/CreatePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/TextureRect/VBoxContainer/CreatePanel/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Create room"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/TextureRect/VBoxContainer/CreatePanel/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+placeholder_text = "Custom key"
+alignment = 1
+
+[node name="ClearButton" type="Button" parent="PanelContainer/TextureRect/VBoxContainer/CreatePanel/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 2
+text = "Clear key"
+
+[node name="CreateButton" type="Button" parent="PanelContainer/TextureRect/VBoxContainer/CreatePanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+text = "Create Room"
+
+[node name="JoinPanel" type="Panel" parent="PanelContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bjdsn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TextureRect/VBoxContainer/JoinPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -87.5
+offset_right = 302.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Join room"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+placeholder_text = "Room key"
+alignment = 1
+
+[node name="PasteButton" type="Button" parent="PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 2
+text = "Paste key"
+
+[node name="JoinButton" type="Button" parent="PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+text = "Join Room"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 285.0
+offset_right = 1454.0
+offset_bottom = 403.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_k40je")
+theme_override_font_sizes/normal_font_size = 80
+text = "CPS: Tower Defense Edition"
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/CreatePanel/VBoxContainer/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/JoinPanel/VBoxContainer/HBoxContainer/PasteButton" to="." method="_on_paste_button_pressed"]

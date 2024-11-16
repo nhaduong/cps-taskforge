@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="GameConfig" load_steps=10 format=3 uid="uid://c6wnfnwipgcfv"]
+
+[ext_resource type="Resource" uid="uid://bvyjiwkuvkjkq" path="res://ReferenceGameDemo/Resources/level0.tres" id="1_1b841"]
+[ext_resource type="Script" path="res://Resources/Enemy.gd" id="1_d1xxy"]
+[ext_resource type="Script" path="res://Resources/GameConfig.gd" id="1_iysmi"]
+[ext_resource type="PackedScene" uid="uid://b6sdkvows8wve" path="res://Scenes/Towers/BaseTower.tscn" id="2_s2t12"]
+[ext_resource type="Script" path="res://Resources/LevelData.gd" id="2_smj07"]
+[ext_resource type="PackedScene" uid="uid://cyhwjwnesqn71" path="res://Scenes/Towers/FearTower.tscn" id="3_1lehh"]
+[ext_resource type="PackedScene" uid="uid://c82mq58sxbpmp" path="res://Scenes/Towers/FreezeTower.tscn" id="4_v3gij"]
+[ext_resource type="PackedScene" uid="uid://dy5r4ungr15qj" path="res://Scenes/Towers/SupportTower.tscn" id="5_dynx0"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="5_qa2ca"]
+
+[resource]
+script = ExtResource("1_iysmi")
+build_version = "1.0.0.41"
+tower_types = Array[ExtResource("5_qa2ca")]([])
+enemy_types = Array[ExtResource("1_d1xxy")]([])
+tower_types_objects = {
+"base": ExtResource("2_s2t12"),
+"fear": ExtResource("3_1lehh"),
+"freeze": ExtResource("4_v3gij"),
+"support": ExtResource("5_dynx0")
+}
+username_chat_colors = Array[Color]([Color(0.999797, 0.253112, 0.194758, 1), Color(0, 0.887663, 0, 1)])
+level_progression = Array[ExtResource("2_smj07")]([ExtResource("1_1b841")])
+num_rounds_per_level = 100
+text_chat_enabled = true
+voice_chat_enabled = false
+push_to_talk = false
+shared_player_resources = true
+can_modify_other_players_towers = false
+show_enemy_preview_panel = false
+is_rts = false
+show_tower_name = false
+show_tower_description = false
+continue_to_next_level_automatically = true
+show_coordinate_grid_on_map = false
+experiment_reference_id = "2 player reference game with text chat only"
+is_remote_exp = true
+nakama_server_key = "defaultkey"
+nakama_host = "198.12.103.208"
+nakama_port = 7350
+nakama_scheme = "http"
+do_data_logging = false
+data_logging_server_url = ""

@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://blqaq1dyaoedp"]
+
+[ext_resource type="Texture2D" uid="uid://jnyu5ogdto5u" path="res://Art/towers/tower_red_32x32.png" id="1_dmgok"]
+[ext_resource type="Script" path="res://Scenes/HUD/TowerBuy.gd" id="2_mmw8j"]
+[ext_resource type="Texture2D" uid="uid://n22masrfex4" path="res://Art/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile250.png" id="3_361l3"]
+[ext_resource type="FontFile" uid="uid://b3eo13vqlarjn" path="res://Theme/fonts/Chakra_Petch/ChakraPetch-SemiBold.ttf" id="6_x32b8"]
+
+[node name="TowerBuyButton" type="Button" node_paths=PackedStringArray("hotkey_label", "cost_label", "name_label")]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("1_dmgok")
+icon_alignment = 1
+script = ExtResource("2_mmw8j")
+hotkey_label = NodePath("HotkeyLabel")
+cost_label = NodePath("Cost")
+name_label = NodePath("Name")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_361l3")
+centered = false
+
+[node name="Tooltip" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HotkeyLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -55.0
+offset_right = -11.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("6_x32b8")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 2
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -86.0
+offset_right = -21.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("6_x32b8")
+theme_override_font_sizes/font_size = 20
+text = "$150"
+horizontal_alignment = 2
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 28.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("6_x32b8")
+theme_override_font_sizes/font_size = 22
+text = "Plant"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 73.0
+offset_bottom = 71.0
+mouse_filter = 1
+
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

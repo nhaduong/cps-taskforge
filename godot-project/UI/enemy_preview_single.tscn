@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5oqvl1r2sjx"]
+
+[ext_resource type="Theme" uid="uid://ouvd3hm6vjif" path="res://Theme/theme.tres" id="1_4hs5d"]
+[ext_resource type="Texture2D" uid="uid://cimxuv40v8vxg" path="res://Art/2D-Fantasy-Orcs-Free-Sprite-Sheets/_PNG/3_ORK/IDLE/IDLE_006.png" id="2_3r3hl"]
+[ext_resource type="Script" path="res://UI/enemy_preview_single.gd" id="2_dgu5a"]
+
+[node name="EnemyPreviewSingle" type="MarginContainer" node_paths=PackedStringArray("sprite_texture", "enemy_count")]
+custom_minimum_size = Vector2(85, 85)
+offset_right = 85.0
+offset_bottom = 85.0
+mouse_filter = 2
+theme = ExtResource("1_4hs5d")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("2_dgu5a")
+sprite_texture = NodePath("ColorRect/MarginContainer/TextureRect")
+enemy_count = NodePath("ColorRect/Label")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -38.5
+offset_right = 43.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_3r3hl")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_right = -5.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+horizontal_alignment = 2

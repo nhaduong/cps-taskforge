@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://jhjq7ol1c6as"]
+
+[ext_resource type="Texture2D" uid="uid://fqd8xy7fjiiy" path="res://Art/2D-Fantasy-Orcs-Free-Sprite-Sheets/_SCML/1_ORK/1_ORK.png" id="1_fqe7j"]
+[ext_resource type="Script" path="res://Resources/Enemy.gd" id="1_kwjca"]
+
+[resource]
+script = ExtResource("1_kwjca")
+walking_animation = "walk"
+die_animation = "die"
+icon = ExtResource("1_fqe7j")
+speed = 125
+health = 80.0
+damage = 1
+score_value = 100
+money_earned_on_death = 200
+fireResistance = 0.3
+waterResistance = 0.3
+earthResistance = 0.3
+airResistance = 0.3

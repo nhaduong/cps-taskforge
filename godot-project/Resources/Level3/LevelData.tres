@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://dpobsv4uchkpl"]
+
+[ext_resource type="Resource" uid="uid://b3nqks546kvkx" path="res://Resources/Level3/Level3Grid.tres" id="1_0u2ga"]
+[ext_resource type="PackedScene" uid="uid://d1i6gv0syejl5" path="res://Scenes/Maps/FinalLevels/Level3.tscn" id="2_ulkvs"]
+[ext_resource type="Script" path="res://Resources/LevelData.gd" id="3_r2yy5"]
+
+[resource]
+script = ExtResource("3_r2yy5")
+Gold = 18000
+Gold_RTS = 2000
+Health = 10
+AvailableUnits = Array[Dictionary]([{
+0: [8, 7, 9],
+1: [8, 7, 9],
+2: [8, 7, 9]
+}, {
+0: [1, 5, 6],
+1: [1, 5, 6],
+2: [1, 5, 6]
+}, {
+0: [2, 3, 12],
+1: [2, 3, 12],
+2: [2, 3, 12]
+}, {
+0: [4, 10, 0],
+1: [4, 10, 0],
+2: [4, 10, 0]
+}])
+Map = ExtResource("2_ulkvs")
+grid = ExtResource("1_0u2ga")
+valid_buy_tiles = Array[Vector2i]([Vector2i(1, 1)])
+wave_timer_minutes_RTS = 5
+wave_timer_seconds_RTS = 0
+wave_timer_minutes = 4
+wave_timer_seconds = 59
+num_rounds_for_this_level_override = -1

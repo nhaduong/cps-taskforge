@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://cyxcrtry83h62"]
+
+[ext_resource type="Texture2D" uid="uid://pfybpffmvgqy" path="res://Art/tower_icons/multi_tower_icon.png" id="1_e6k7k"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_jb43e"]
+
+[resource]
+script = ExtResource("2_jb43e")
+display_name = "Multi-Shot"
+fire_animation = "fire13"
+idle_animation = "idle13"
+tower_type = 12
+description = "A tower that fires in multiple directions at once."
+fireRate = 20.0
+dmg = 1.2
+duration = 1.0
+range = 16
+icon = ExtResource("1_e6k7k")
+cost = 180
+element = -1
+range_upgrade_costs = [45, 85, 120]
+damage_upgrade_costs = [30, 65, 120]
+firerate_upgrade_costs = [60, 90, 170]
+duration_upgrade_costs = [0, 30, 100, 300, 450]
+hotkey_label = ""
+tower_to_instantiate = "multi"

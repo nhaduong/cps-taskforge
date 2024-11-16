@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://gv054afivm68"]
+
+[node name="base_pathfollow2d" type="PathFollow2D"]
+rotates = false
+loop = false

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://baf2jc6rra6s2"]
+
+[ext_resource type="Script" path="res://ReferenceGameDemo/reference_object.gd" id="1_hweh1"]
+[ext_resource type="Texture2D" uid="uid://b25xthf8twd40" path="res://Art/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile028.png" id="2_0ujbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pvtx"]
+size = Vector2(92, 127)
+
+[node name="A1" type="Area2D"]
+script = ExtResource("1_hweh1")
+target_name = "A8"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0ujbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 2.5)
+shape = SubResource("RectangleShape2D_2pvtx")

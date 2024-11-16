@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://bwmaepwjekhy0"]
+
+[ext_resource type="Texture2D" uid="uid://b3raslw30di8r" path="res://Art/tower_icons/expose_tower_icon.png" id="1_5qvml"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_qdg5u"]
+
+[resource]
+script = ExtResource("2_qdg5u")
+display_name = "Observation"
+fire_animation = "fire12"
+idle_animation = "idle12"
+tower_type = 11
+description = "A perceptive tower that identifies the weakpoints of enemies in its field of vision, causing them to take more damage from other towers."
+fireRate = 1.0
+dmg = 1.0
+duration = 1.0
+range = 15
+icon = ExtResource("1_5qvml")
+cost = 200
+element = 2
+range_upgrade_costs = [20, 40, 90, 130, 175]
+damage_upgrade_costs = [0, 30, 100, 300, 450]
+firerate_upgrade_costs = [0, 20, 80, 150, 250]
+duration_upgrade_costs = [20, 40, 90, 130, 175]
+hotkey_label = ""
+tower_to_instantiate = "exposure"

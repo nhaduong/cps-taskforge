@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://2fhkl6ihxeiv"]
+
+[ext_resource type="Script" path="res://UI/scores_child_parent.gd" id="1_ihwma"]
+[ext_resource type="Script" path="res://UI/scores_child.gd" id="1_ll7vc"]
+
+[node name="ScoresChildParent" type="Control" node_paths=PackedStringArray("bg", "scores_child")]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 6
+script = ExtResource("1_ihwma")
+bg = NodePath("ColorRect")
+scores_child = NodePath("ColorRect/ScoresChild")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 24.0
+grow_horizontal = 2
+color = Color(0.419608, 0.141176, 1, 1)
+
+[node name="ScoresChild" type="HBoxContainer" parent="ColorRect" node_paths=PackedStringArray("team_name_label", "score_label")]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_right = 138.0
+offset_bottom = 24.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+script = ExtResource("1_ll7vc")
+team_name_label = NodePath("Label")
+score_label = NodePath("Label2")
+
+[node name="Label" type="Label" parent="ColorRect/ScoresChild"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TEAM NAME"
+
+[node name="Label2" type="Label" parent="ColorRect/ScoresChild"]
+layout_mode = 2
+text = "12345567"

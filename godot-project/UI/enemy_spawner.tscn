@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvj2ohvx0ioek"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy spawner.gd" id="1_4xh44"]
+[ext_resource type="Resource" uid="uid://jhjq7ol1c6as" path="res://Resources/EnemyTypes/Basic.tres" id="2_xo2pi"]
+[ext_resource type="Resource" uid="uid://cdgjqw3c7hql7" path="res://Resources/EnemyTypes/Fast.tres" id="3_5b3ke"]
+
+[node name="Enemy spawner" type="Node2D"]
+script = ExtResource("1_4xh44")
+wave = Array[Resource("res://Resources/Enemy.gd")]([ExtResource("2_xo2pi"), ExtResource("3_5b3ke"), ExtResource("2_xo2pi")])
+wave_count_info = Array[int]([5, 2, 5])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.6
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

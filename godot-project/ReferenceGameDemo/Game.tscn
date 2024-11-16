@@ -1,0 +1,792 @@
+[gd_scene load_steps=30 format=3 uid="uid://dkp6s4gnt4xim"]
+
+[ext_resource type="Script" path="res://ReferenceGameDemo/GameLogic.gd" id="1_byu41"]
+[ext_resource type="PackedScene" uid="uid://cjininu4s3hcp" path="res://ReferenceGameDemo/PlayerCharacter.tscn" id="2_g6yss"]
+[ext_resource type="Resource" uid="uid://c6wnfnwipgcfv" path="res://ReferenceGameDemo/GameConfig.tres" id="2_ps70s"]
+[ext_resource type="Script" path="res://Scenes/Scorer.gd" id="3_3lrfj"]
+[ext_resource type="Script" path="res://Scenes/GameUI.gd" id="4_jqi48"]
+[ext_resource type="PackedScene" uid="uid://2fhkl6ihxeiv" path="res://UI/scores_child.tscn" id="5_b3xko"]
+[ext_resource type="Texture2D" uid="uid://b0v0gb8byh512" path="res://Art/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/svg/Bar/Background.svg" id="6_3tuxc"]
+[ext_resource type="PackedScene" uid="uid://br4ai3cuax36r" path="res://Scenes/HUD/UnitPlacement.tscn" id="7_jynqm"]
+[ext_resource type="PackedScene" uid="uid://d2sx6ibo6hei2" path="res://Scenes/Chat/ChatBox.tscn" id="8_he1ld"]
+[ext_resource type="Script" path="res://Scenes/NotificationsUI.gd" id="9_inaet"]
+[ext_resource type="Script" path="res://ReferenceGameDemo/end_round_panel.gd" id="10_go5ew"]
+[ext_resource type="Script" path="res://Scripts/UIUX/FastforwardTime.gd" id="10_i1xyo"]
+[ext_resource type="Script" path="res://Scenes/GoToNextRound.gd" id="11_yjs5s"]
+[ext_resource type="Script" path="res://Scenes/ScoresListing.gd" id="12_rogej"]
+[ext_resource type="Script" path="res://Scenes/InfoPanel.gd" id="13_4ndxw"]
+[ext_resource type="Script" path="res://Scenes/LabelWithBackground.gd" id="14_nae8h"]
+[ext_resource type="Texture2D" uid="uid://tw7jivp1f3yj" path="res://Art/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/png@0.5x/Icon/Heart_White@0.5x.png" id="15_rno8j"]
+[ext_resource type="Texture2D" uid="uid://w4kr36471c8k" path="res://Art/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/png/Counter/Icon/Money.png" id="16_p0ufg"]
+[ext_resource type="PackedScene" uid="uid://bsi6klfuaeyg5" path="res://Scenes/HUD/WavePreview.tscn" id="17_f4vp1"]
+[ext_resource type="Script" path="res://Scenes/WaveTimer.gd" id="18_jm8nf"]
+[ext_resource type="Texture2D" uid="uid://da3hhx5eibsju" path="res://Art/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/png/Counter/Dummy.png" id="19_qvt03"]
+[ext_resource type="Texture2D" uid="uid://vv3i53ah47ag" path="res://Art/Prinbles_Asset_Robin (v 1.1) (9_5_2023)/png/Counter/Icon/Time.png" id="20_5h5pu"]
+[ext_resource type="PackedScene" uid="uid://crwruvut0ff7" path="res://UI/tower_info_panel.tscn" id="21_gg3np"]
+[ext_resource type="Script" path="res://Scripts/UIUX/countdown.gd" id="22_321j7"]
+[ext_resource type="Script" path="res://Scripts/bullet_pool.gd" id="23_sg1xi"]
+[ext_resource type="PackedScene" uid="uid://dijb6k227i3jw" path="res://Scenes/Bullets/base_bullet.tscn" id="24_rssl8"]
+[ext_resource type="Script" path="res://ReferenceGameDemo/TargetObjectContainer.gd" id="25_wgma6"]
+[ext_resource type="Texture2D" uid="uid://2nsb26iibx1" path="res://Art/castle.png" id="26_qjssv"]
+[ext_resource type="PackedScene" uid="uid://cl8f13vbpc0j1" path="res://Scenes/music_controller.tscn" id="29_wnvvx"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("bullet_pool")]
+script = ExtResource("1_byu41")
+playerCharacter = ExtResource("2_g6yss")
+bullet_pool = NodePath("BulletPool")
+Config = ExtResource("2_ps70s")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 538)
+
+[node name="BulletContainer" type="Node2D" parent="."]
+z_index = 10
+
+[node name="TowersContainer" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Scorer" type="Node2D" parent="."]
+script = ExtResource("3_3lrfj")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="HUD" node_paths=PackedStringArray("next_round_panel", "hp", "gold", "score", "wave_preview", "fastforward_btn", "abort_btn", "scores_listing", "unitplacement", "run_wave_btn", "wave_timer", "tooltip_panel", "countdown_next_round")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_jqi48")
+next_round_panel = NodePath("correct")
+hp = NodePath("HP/HBoxContainer/RichTextLabel")
+gold = NodePath("Gold/MarginContainer/HBoxContainer/RichTextLabel")
+score = NodePath("Score/MarginContainer/HBoxContainer/RichTextLabel")
+wave_preview = NodePath("WavePreview")
+fastforward_btn = NodePath("FastforwardTime")
+abort_btn = NodePath("Emergency/AbortRound")
+scores_child_scene = ExtResource("5_b3xko")
+scores_listing = NodePath("correct/VBoxContainer/ScrollContainer/ScoresListing")
+unitplacement = NodePath("NinePatchRect/UnitPlacement")
+run_wave_btn = NodePath("RunWave")
+wave_timer = NodePath("WaveTimer")
+tooltip_panel = NodePath("TowerInfoPopup")
+countdown_next_round = NodePath("countdownToNextLevel")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/GameUI"]
+custom_minimum_size = Vector2(425, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("6_3tuxc")
+region_rect = Rect2(14, 9, 470, 30)
+
+[node name="UnitPlacement" parent="HUD/GameUI/NinePatchRect" instance=ExtResource("7_jynqm")]
+visible = false
+layout_mode = 1
+offset_top = 93.73
+offset_bottom = 93.73
+
+[node name="chatbox" type="HBoxContainer" parent="HUD/GameUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -412.0
+offset_top = -420.0
+offset_right = -412.0
+offset_bottom = -170.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ChatBox" parent="HUD/GameUI/chatbox" instance=ExtResource("8_he1ld")]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RunWave" type="Button" parent="HUD/GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 1825.0
+offset_top = 16.0
+offset_right = 1910.0
+offset_bottom = 87.0
+text = "Play"
+
+[node name="NotificationsUI" type="VBoxContainer" parent="HUD/GameUI"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_inaet")
+
+[node name="FastforwardTime" type="Button" parent="HUD/GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 1755.0
+offset_top = 17.0
+offset_right = 1820.0
+offset_bottom = 88.0
+toggle_mode = true
+text = "1x"
+script = ExtResource("10_i1xyo")
+
+[node name="correct" type="Panel" parent="HUD/GameUI"]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_go5ew")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/correct"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 3.0
+offset_right = 165.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You've completed the level (or died!) Play the next round."
+
+[node name="Close" type="Button" parent="HUD/GameUI/correct"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameUI/correct"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_right = 192.5
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HUD/GameUI/correct/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Scores"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/GameUI/correct/VBoxContainer"]
+custom_minimum_size = Vector2(385, 232.55)
+layout_mode = 2
+
+[node name="ScoresListing" type="VBoxContainer" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("12_rogej")
+
+[node name="ScoresChildParent" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer/ScoresListing" instance=ExtResource("5_b3xko")]
+layout_mode = 2
+
+[node name="ScoresChildParent2" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../ScoresChildParent/ColorRect")
+scores_child = NodePath("../ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent3" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../ScoresChildParent/ColorRect")
+scores_child = NodePath("../ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent4" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../ScoresChildParent/ColorRect")
+scores_child = NodePath("../ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent5" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../ScoresChildParent/ColorRect")
+scores_child = NodePath("../ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent6" parent="HUD/GameUI/correct/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../ScoresChildParent/ColorRect")
+scores_child = NodePath("../ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="Leaderboard" type="Panel" parent="HUD/GameUI" node_paths=PackedStringArray("scores_listing")]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_yjs5s")
+scores_child_scene = ExtResource("5_b3xko")
+scores_listing = NodePath("../correct/VBoxContainer/ScrollContainer/ScoresListing")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/Leaderboard"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 3.0
+offset_right = 165.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You've completed the level (or died!) Play the next round."
+
+[node name="Close" type="Button" parent="HUD/GameUI/Leaderboard"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameUI/Leaderboard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_right = 192.5
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HUD/GameUI/Leaderboard/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Scores"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/GameUI/Leaderboard/VBoxContainer"]
+custom_minimum_size = Vector2(385, 232.55)
+layout_mode = 2
+
+[node name="ScoresListing" type="VBoxContainer" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("12_rogej")
+
+[node name="ScoresChildParent" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect")
+scores_child = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent2" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect")
+scores_child = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent3" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect")
+scores_child = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent4" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect")
+scores_child = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent5" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect")
+scores_child = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="ScoresChildParent6" parent="HUD/GameUI/Leaderboard/VBoxContainer/ScrollContainer/ScoresListing" node_paths=PackedStringArray("bg", "scores_child") instance=ExtResource("5_b3xko")]
+layout_mode = 2
+bg = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect")
+scores_child = NodePath("../../../../../correct/VBoxContainer/ScrollContainer/ScoresListing/ScoresChildParent/ColorRect/ScoresChild")
+
+[node name="RestartExperiment" type="Panel" parent="HUD/GameUI"]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 0
+offset_left = 1303.0
+offset_top = 610.0
+offset_right = 1903.0
+offset_bottom = 1010.0
+script = ExtResource("13_4ndxw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/RestartExperiment"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Replay level"
+
+[node name="Close" type="Button" parent="HUD/GameUI/RestartExperiment"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameUI/RestartExperiment"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 220.0
+offset_right = 464.0
+offset_bottom = 291.0
+
+[node name="lvl1" type="Button" parent="HUD/GameUI/RestartExperiment/HBoxContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="lvl2" type="Button" parent="HUD/GameUI/RestartExperiment/HBoxContainer"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="lvl3" type="Button" parent="HUD/GameUI/RestartExperiment/HBoxContainer"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="ExperimentDone" type="Panel" parent="HUD/GameUI"]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -301.0
+offset_right = 300.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_4ndxw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/ExperimentDone"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -75.0
+offset_right = 125.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Experiment complete! Thanks for participating!
+
+You can exit the game now."
+
+[node name="Close" type="Button" parent="HUD/GameUI/ExperimentDone"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameUI/ExperimentDone"]
+visible = false
+layout_mode = 0
+offset_left = 141.0
+offset_top = 220.0
+offset_right = 464.0
+offset_bottom = 291.0
+
+[node name="lvl1" type="Button" parent="HUD/GameUI/ExperimentDone/HBoxContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="lvl2" type="Button" parent="HUD/GameUI/ExperimentDone/HBoxContainer"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="lvl3" type="Button" parent="HUD/GameUI/ExperimentDone/HBoxContainer"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="HP" type="ColorRect" parent="HUD/GameUI"]
+visible = false
+custom_minimum_size = Vector2(60, 2)
+layout_mode = 0
+offset_left = 1503.0
+offset_top = 31.0
+offset_right = 1563.0
+offset_bottom = 71.0
+color = Color(0.396078, 0.215686, 0.0235294, 1)
+script = ExtResource("14_nae8h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameUI/HP"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameUI/HP/HBoxContainer"]
+modulate = Color(0.796078, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("15_rno8j")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/HP/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "10"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Gold" type="ColorRect" parent="HUD/GameUI"]
+visible = false
+custom_minimum_size = Vector2(75, 2)
+layout_mode = 2
+offset_left = 1572.0
+offset_top = 31.0
+offset_right = 1672.0
+offset_bottom = 71.0
+color = Color(0.396078, 0.215686, 0.0235294, 1)
+script = ExtResource("14_nae8h")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/GameUI/Gold"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameUI/Gold/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameUI/Gold/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("16_p0ufg")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/Gold/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "12345"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Score" type="ColorRect" parent="HUD/GameUI"]
+visible = false
+custom_minimum_size = Vector2(70, 2)
+layout_mode = 2
+offset_left = 1680.0
+offset_top = 31.0
+offset_right = 1750.0
+offset_bottom = 71.0
+color = Color(0.396078, 0.215686, 0.0235294, 1)
+script = ExtResource("14_nae8h")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/GameUI/Score"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameUI/Score/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameUI/Score/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("16_p0ufg")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/GameUI/Score/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "12345"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Peer id" type="Label" parent="HUD/GameUI"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1825.0
+offset_top = 110.0
+offset_right = 1899.0
+offset_bottom = 136.0
+text = "12345678"
+
+[node name="Element ID" type="Label" parent="HUD/GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 1631.0
+offset_top = 114.0
+offset_right = 1771.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="WavePreview" parent="HUD/GameUI" instance=ExtResource("17_f4vp1")]
+visible = false
+position = Vector2(1506, 330)
+
+[node name="Leaderboard2" type="Button" parent="HUD/GameUI"]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "Leaderboard"
+
+[node name="Button2" type="Button" parent="HUD/GameUI"]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 99.0
+offset_right = 222.0
+offset_bottom = 71.0
+text = "post score"
+
+[node name="WaveTimer" type="Control" parent="HUD/GameUI" node_paths=PackedStringArray("timer", "label")]
+visible = false
+anchors_preset = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 59.0
+offset_bottom = 55.0
+script = ExtResource("18_jm8nf")
+timer = NodePath("Timer")
+label = NodePath("TextureRect/Label")
+minutes = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameUI/WaveTimer"]
+layout_mode = 0
+offset_right = 125.0
+offset_bottom = 60.0
+texture = ExtResource("19_qvt03")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/GameUI/WaveTimer/TextureRect"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 49.0
+offset_bottom = 48.0
+texture = ExtResource("20_5h5pu")
+
+[node name="Label" type="Label" parent="HUD/GameUI/WaveTimer/TextureRect"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 8.0
+offset_right = 124.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+theme_override_font_sizes/font_size = 30
+text = "5:30"
+
+[node name="Timer" type="Timer" parent="HUD/GameUI/WaveTimer"]
+
+[node name="TowerInfoPopup" parent="HUD/GameUI" instance=ExtResource("21_gg3np")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 280.0
+offset_bottom = 380.0
+
+[node name="Emergency" type="HBoxContainer" parent="HUD/GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 1498.0
+offset_top = 283.0
+offset_right = 1916.0
+offset_bottom = 354.0
+scale = Vector2(0.65, 0.65)
+
+[node name="CloseTooltips" type="Button" parent="HUD/GameUI/Emergency"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.392157)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0.737255)
+text = "Close Tooltips"
+
+[node name="AbortRound" type="Button" parent="HUD/GameUI/Emergency"]
+layout_mode = 2
+text = "Abort Round"
+
+[node name="Mute" type="Button" parent="HUD/GameUI/Emergency"]
+layout_mode = 2
+toggle_mode = true
+text = "Mute
+"
+
+[node name="countdownToNextLevel" type="Label" parent="HUD/GameUI" node_paths=PackedStringArray("timer")]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_top = 46.8
+offset_right = 62.0
+offset_bottom = 197.8
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 120
+text = "8"
+horizontal_alignment = 1
+script = ExtResource("22_321j7")
+timer = NodePath("Timer")
+seconds = 15
+
+[node name="Timer" type="Timer" parent="HUD/GameUI/countdownToNextLevel"]
+process_mode = 3
+
+[node name="TargetObjectContainer" type="VBoxContainer" parent="HUD/GameUI"]
+layout_mode = 0
+offset_left = 1509.0
+offset_top = 15.0
+offset_right = 1899.0
+offset_bottom = 569.0
+script = ExtResource("25_wgma6")
+
+[node name="TargetObject" type="RichTextLabel" parent="HUD/GameUI/TargetObjectContainer"]
+custom_minimum_size = Vector2(140, 70.35)
+layout_mode = 2
+text = "TARGET OBJECT"
+
+[node name="target_obj_sprite" type="Sprite2D" parent="HUD/GameUI/TargetObjectContainer"]
+position = Vector2(186, 197)
+scale = Vector2(0.553738, 0.553738)
+texture = ExtResource("26_qjssv")
+
+[node name="Tween" type="Node" parent="."]
+
+[node name="PopupsContainer" type="Node2D" parent="."]
+z_index = 10
+
+[node name="BulletPool" type="Node" parent="."]
+script = ExtResource("23_sg1xi")
+base_bullet_scene = ExtResource("24_rssl8")
+
+[node name="MusicController" parent="." instance=ExtResource("29_wnvvx")]
+
+[connection signal="wave_started" from="." to="HUD/GameUI/WaveTimer" method="_on_game_wave_started"]
+[connection signal="continue_next_round" from="HUD/GameUI" to="." method="_on_game_ui_continue_next_round"]
+[connection signal="text_sent" from="HUD/GameUI" to="." method="_on_game_ui_text_sent"]
+[connection signal="edit_ended" from="HUD/GameUI/chatbox/ChatBox" to="HUD/GameUI" method="_on_chat_box_edit_ended"]
+[connection signal="edit_started" from="HUD/GameUI/chatbox/ChatBox" to="HUD/GameUI" method="_on_chat_box_edit_started"]
+[connection signal="text_sent" from="HUD/GameUI/chatbox/ChatBox" to="HUD/GameUI" method="_on_chat_box_text_sent"]
+[connection signal="pressed" from="HUD/GameUI/RunWave" to="HUD/GameUI" method="_on_run_wave_pressed"]
+[connection signal="toggled" from="HUD/GameUI/FastforwardTime" to="HUD/GameUI/FastforwardTime" method="_on_toggled"]
+[connection signal="pressed" from="HUD/GameUI/correct/Close" to="HUD/GameUI" method="_on_close_pressed"]
+[connection signal="visibility_changed" from="HUD/GameUI/Leaderboard" to="HUD/GameUI/Leaderboard" method="_on_visibility_changed"]
+[connection signal="pressed" from="HUD/GameUI/Leaderboard/Close" to="HUD/GameUI/Leaderboard" method="_on_close_pressed"]
+[connection signal="pressed" from="HUD/GameUI/RestartExperiment/Close" to="HUD/GameUI" method="_on_close_pressed"]
+[connection signal="pressed" from="HUD/GameUI/RestartExperiment/HBoxContainer/lvl1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="HUD/GameUI/RestartExperiment/HBoxContainer/lvl2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="HUD/GameUI/RestartExperiment/HBoxContainer/lvl3" to="." method="_on_lvl_3_pressed"]
+[connection signal="pressed" from="HUD/GameUI/ExperimentDone/Close" to="HUD/GameUI" method="_on_close_pressed"]
+[connection signal="pressed" from="HUD/GameUI/ExperimentDone/HBoxContainer/lvl1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="HUD/GameUI/ExperimentDone/HBoxContainer/lvl2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="HUD/GameUI/ExperimentDone/HBoxContainer/lvl3" to="." method="_on_lvl_3_pressed"]
+[connection signal="pressed" from="HUD/GameUI/Leaderboard2" to="HUD/GameUI/Leaderboard" method="_on_leaderboard_2_pressed"]
+[connection signal="pressed" from="HUD/GameUI/Button2" to="HUD/GameUI" method="_on_button_2_pressed"]
+[connection signal="timeout" from="HUD/GameUI/WaveTimer/Timer" to="HUD/GameUI/WaveTimer" method="_on_timer_timeout"]
+[connection signal="visibility_changed" from="HUD/GameUI/TowerInfoPopup" to="HUD/GameUI/TowerInfoPopup" method="_on_visibility_changed"]
+[connection signal="pressed" from="HUD/GameUI/Emergency/CloseTooltips" to="HUD/GameUI" method="_on_close_tooltips_pressed"]
+[connection signal="pressed" from="HUD/GameUI/Emergency/AbortRound" to="HUD/GameUI" method="_on_abort_round_pressed"]
+[connection signal="toggled" from="HUD/GameUI/Emergency/Mute" to="HUD/GameUI" method="_on_mute_toggled"]
+[connection signal="timeout" from="HUD/GameUI/countdownToNextLevel/Timer" to="HUD/GameUI/countdownToNextLevel" method="_on_timer_timeout"]

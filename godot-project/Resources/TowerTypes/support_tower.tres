@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://cw87x0o30o7yt"]
+
+[ext_resource type="Texture2D" uid="uid://do1fxqapnf5kb" path="res://Art/tower_icons/support_tower_icon.png" id="1_stgks"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_fa76s"]
+
+[resource]
+script = ExtResource("2_fa76s")
+display_name = "Support"
+fire_animation = "fire6"
+idle_animation = "idle6"
+tower_type = 5
+description = "A tower that boosts the effectiveness of nearby towers."
+fireRate = 1.0
+dmg = 1.0
+duration = 1.0
+range = 13
+icon = ExtResource("1_stgks")
+cost = 400
+element = 2
+range_upgrade_costs = [100, 155, 280, 430, 600]
+damage_upgrade_costs = [100, 155, 280]
+firerate_upgrade_costs = [50, 100, 150, 225, 300]
+duration_upgrade_costs = [50, 100, 150, 225, 300]
+hotkey_label = ""
+tower_to_instantiate = "support"

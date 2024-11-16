@@ -1,0 +1,153 @@
+[gd_scene load_steps=4 format=3 uid="uid://belc883x5l327"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/ConnectionScreen.gd" id="1_ox2tj"]
+[ext_resource type="Theme" uid="uid://ouvd3hm6vjif" path="res://Theme/theme.tres" id="1_sppjn"]
+[ext_resource type="Texture2D" uid="uid://dby4we3paxh1o" path="res://Theme/bg_resize.jpg" id="3_rxa7y"]
+
+[node name="ConnectionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sppjn")
+script = ExtResource("1_ox2tj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rxa7y")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sppjn")
+
+[node name="Login" type="Control" parent="TabContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Login"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -106.0
+offset_right = 187.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="EmailLabel" type="Label" parent="TabContainer/Login/GridContainer"]
+layout_mode = 2
+text = "Email"
+
+[node name="Email" type="LineEdit" parent="TabContainer/Login/GridContainer"]
+layout_mode = 2
+
+[node name="PasswordLabel" type="Label" parent="TabContainer/Login/GridContainer"]
+layout_mode = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="TabContainer/Login/GridContainer"]
+layout_mode = 2
+secret = true
+
+[node name="Spacer" type="Control" parent="TabContainer/Login/GridContainer"]
+layout_mode = 2
+
+[node name="SaveCheckbox" type="CheckBox" parent="TabContainer/Login/GridContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+text = "Save email and password"
+
+[node name="LoginBtn" type="Button" parent="TabContainer/Login"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+offset_left = 362.0
+offset_top = 370.0
+offset_right = 762.0
+offset_bottom = 441.0
+text = "Login"
+
+[node name="CreateAccount" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/CreateAccount"]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 203.5
+offset_right = 752.0
+offset_bottom = 373.5
+columns = 2
+
+[node name="UsernameLabel" type="Label" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+text = "Username"
+
+[node name="Username" type="LineEdit" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+max_length = 8
+
+[node name="EmailLabel" type="Label" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+text = "Email"
+
+[node name="Email" type="LineEdit" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+
+[node name="PasswordLabel" type="Label" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+placeholder_text = "Minimum 8 characters long"
+
+[node name="Spacer2" type="Control" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+
+[node name="Password requirements" type="Label" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+text = "Password needs to be minimum 
+8 characters long, no symbols"
+
+[node name="Spacer" type="Control" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+
+[node name="SaveCheckbox" type="CheckBox" parent="TabContainer/CreateAccount/GridContainer"]
+layout_mode = 2
+text = "Save email and password"
+
+[node name="CreateAccountBtn" type="Button" parent="TabContainer/CreateAccount"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+offset_left = 362.0
+offset_top = 445.0
+offset_right = 762.0
+offset_bottom = 516.0
+text = "Create Account
+"
+
+[connection signal="pressed" from="TabContainer/Login/LoginBtn" to="." method="_on_login_btn_pressed"]
+[connection signal="pressed" from="TabContainer/CreateAccount/CreateAccountBtn" to="." method="_on_create_account_btn_pressed"]

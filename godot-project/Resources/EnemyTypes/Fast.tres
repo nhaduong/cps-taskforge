@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cdgjqw3c7hql7"]
+
+[ext_resource type="Texture2D" uid="uid://d1hw1vdpwpnln" path="res://Art/foot.png" id="1_xgy57"]
+[ext_resource type="Script" path="res://Resources/Enemy.gd" id="2_gtugl"]
+
+[resource]
+script = ExtResource("2_gtugl")
+walking_animation = "walk2"
+die_animation = "die2"
+icon = ExtResource("1_xgy57")
+speed = 185
+health = 60.0
+damage = 1
+score_value = 200
+money_earned_on_death = 300
+fireResistance = 0.3
+waterResistance = 0.3
+earthResistance = 0.3
+airResistance = 0.3

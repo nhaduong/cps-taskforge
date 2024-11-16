@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://j6ulqxjpecbp"]
+
+[ext_resource type="PackedScene" uid="uid://b5oqvl1r2sjx" path="res://UI/enemy_preview_single.tscn" id="1_7ve51"]
+[ext_resource type="Script" path="res://UI/wave_preview_single.gd" id="1_w241d"]
+
+[node name="WavePreviewSingle" type="VBoxContainer" node_paths=PackedStringArray("info_label", "preview_container")]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_w241d")
+info_label = NodePath("Label")
+preview_container = NodePath("PreviewContainer")
+enemy_preview_single = ExtResource("1_7ve51")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Spawner #: "
+
+[node name="PreviewContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 85)
+layout_mode = 2
+mouse_filter = 2
+columns = 4
+
+[node name="EnemyPreviewSingle" parent="PreviewContainer" instance=ExtResource("1_7ve51")]
+layout_mode = 2
+
+[node name="EnemyPreviewSingle2" parent="PreviewContainer" node_paths=PackedStringArray("sprite_texture", "enemy_count") instance=ExtResource("1_7ve51")]
+layout_mode = 2
+sprite_texture = NodePath("../EnemyPreviewSingle/ColorRect/MarginContainer/TextureRect")
+enemy_count = NodePath("../EnemyPreviewSingle/ColorRect/Label")
+
+[node name="EnemyPreviewSingle3" parent="PreviewContainer" node_paths=PackedStringArray("sprite_texture", "enemy_count") instance=ExtResource("1_7ve51")]
+layout_mode = 2
+sprite_texture = NodePath("../EnemyPreviewSingle/ColorRect/MarginContainer/TextureRect")
+enemy_count = NodePath("../EnemyPreviewSingle/ColorRect/Label")
+
+[node name="EnemyPreviewSingle4" parent="PreviewContainer" node_paths=PackedStringArray("sprite_texture", "enemy_count") instance=ExtResource("1_7ve51")]
+layout_mode = 2
+sprite_texture = NodePath("../EnemyPreviewSingle/ColorRect/MarginContainer/TextureRect")
+enemy_count = NodePath("../EnemyPreviewSingle/ColorRect/Label")
+
+[node name="EnemyPreviewSingle5" parent="PreviewContainer" node_paths=PackedStringArray("sprite_texture", "enemy_count") instance=ExtResource("1_7ve51")]
+layout_mode = 2
+sprite_texture = NodePath("../EnemyPreviewSingle/ColorRect/MarginContainer/TextureRect")
+enemy_count = NodePath("../EnemyPreviewSingle/ColorRect/Label")

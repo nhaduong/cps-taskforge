@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://bqukf8p7av70"]
+
+[ext_resource type="Texture2D" uid="uid://cecxfpa2fgufg" path="res://Art/tower_icons/mapwide_tower_icon.png" id="1_r7j5n"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="2_v83y4"]
+
+[resource]
+script = ExtResource("2_v83y4")
+display_name = "Map"
+fire_animation = "fire8"
+idle_animation = "idle8"
+tower_type = 7
+description = "A tower that damages all enemies."
+fireRate = 1.1
+dmg = 2.7
+duration = 1.0
+range = 200
+icon = ExtResource("1_r7j5n")
+cost = 500
+element = 2
+range_upgrade_costs = [75, 90, 130, 160, 220]
+damage_upgrade_costs = [75, 175, 300]
+firerate_upgrade_costs = [50, 175, 310]
+duration_upgrade_costs = [0, 30, 100, 300, 450]
+hotkey_label = ""
+tower_to_instantiate = "map"

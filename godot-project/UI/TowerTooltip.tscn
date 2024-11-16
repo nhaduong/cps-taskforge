@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8swvvpeqwdhr"]
+
+[ext_resource type="Script" path="res://UI/TowerTooltip.gd" id="1_uulxy"]
+[ext_resource type="Theme" uid="uid://ouvd3hm6vjif" path="res://Theme/theme.tres" id="2_j2wvr"]
+
+[node name="TowerTooltip" type="MarginContainer" node_paths=PackedStringArray("firerate_label", "effect_dur_label", "damage_label", "range_label", "sell_label", "buy_label", "description_label")]
+z_index = 1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme = ExtResource("2_j2wvr")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_uulxy")
+firerate_label = NodePath("MarginContainer/VBoxContainer/Firerate")
+effect_dur_label = NodePath("MarginContainer/VBoxContainer/EffectDuration")
+damage_label = NodePath("MarginContainer/VBoxContainer/Damage")
+range_label = NodePath("MarginContainer/VBoxContainer/Range")
+sell_label = NodePath("MarginContainer/VBoxContainer/Sell")
+buy_label = NodePath("MarginContainer/VBoxContainer/Buy")
+description_label = NodePath("MarginContainer/VBoxContainer/Description")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.345098, 0.345098, 0.345098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(150, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Firerate" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Firerate"
+
+[node name="EffectDuration" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Effect Dur."
+
+[node name="Damage" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Damage"
+
+[node name="Range" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Range"
+
+[node name="Sell" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sell"
+
+[node name="Buy" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "a vety long descirption that should not make the tooltip too big"
+autowrap_mode = 2

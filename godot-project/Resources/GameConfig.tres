@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="GameConfig" load_steps=39 format=3 uid="uid://tjiu0l6skqvp"]
+
+[ext_resource type="Script" path="res://Resources/GameConfig.gd" id="1_2ic6y"]
+[ext_resource type="Resource" uid="uid://odxs24ufiqg7" path="res://Resources/Level1/LevelData.tres" id="1_6m64g"]
+[ext_resource type="Script" path="res://Resources/Enemy.gd" id="1_jmcs7"]
+[ext_resource type="PackedScene" uid="uid://b6sdkvows8wve" path="res://Scenes/Towers/BaseTower.tscn" id="1_jt38e"]
+[ext_resource type="Resource" uid="uid://jhjq7ol1c6as" path="res://Resources/EnemyTypes/Basic.tres" id="2_nrxeh"]
+[ext_resource type="Resource" uid="uid://22f4ilbrom7a" path="res://Resources/Level2/LevelData.tres" id="2_wj0g8"]
+[ext_resource type="Resource" uid="uid://cdgjqw3c7hql7" path="res://Resources/EnemyTypes/Fast.tres" id="3_tbx88"]
+[ext_resource type="Resource" uid="uid://b64es6up8fd6u" path="res://Resources/EnemyTypes/Slow.tres" id="4_ny31m"]
+[ext_resource type="Resource" uid="uid://dsehqhdpageh0" path="res://Resources/Level0/LevelData.tres" id="5_ohlom"]
+[ext_resource type="Resource" uid="uid://cskqsvrfgnvuc" path="res://Resources/EnemyTypes/Invisible.tres" id="5_siksl"]
+[ext_resource type="Resource" uid="uid://dpobsv4uchkpl" path="res://Resources/Level3/LevelData.tres" id="6_eu5s5"]
+[ext_resource type="Resource" uid="uid://1jufqbryoscr" path="res://Resources/EnemyTypes/InvisibleFast.tres" id="6_yanni"]
+[ext_resource type="Resource" uid="uid://bfvlcalyoxi66" path="res://Resources/TowerTypes/basic_tower.tres" id="7_8rrf0"]
+[ext_resource type="Script" path="res://Resources/LevelData.gd" id="7_u464p"]
+[ext_resource type="Resource" uid="uid://ek8yvxx2g7v3" path="res://Resources/TowerTypes/freeze_tower.tres" id="7_wkhea"]
+[ext_resource type="Resource" uid="uid://fmjauldsu8x3" path="res://Resources/TowerTypes/poison_tower.tres" id="8_h081j"]
+[ext_resource type="PackedScene" uid="uid://bdrmr60xpact2" path="res://Scenes/Towers/DiscountTower.tscn" id="12_4bgey"]
+[ext_resource type="Resource" uid="uid://cw87x0o30o7yt" path="res://Resources/TowerTypes/support_tower.tres" id="12_bt5ps"]
+[ext_resource type="Resource" uid="uid://dk57yq2wms2oj" path="res://Resources/TowerTypes/sniper_tower.tres" id="12_svc1p"]
+[ext_resource type="Resource" uid="uid://bqukf8p7av70" path="res://Resources/TowerTypes/mapwide_tower.tres" id="12_vt4mm"]
+[ext_resource type="Script" path="res://Resources/TowerData.gd" id="13_hl5lj"]
+[ext_resource type="Resource" uid="uid://kbnuj2erb8ak" path="res://Resources/TowerTypes/splash_tower.tres" id="13_jfqrf"]
+[ext_resource type="Resource" uid="uid://cp8hrfvrpbeou" path="res://Resources/TowerTypes/fear_tower.tres" id="15_ynvsh"]
+[ext_resource type="Resource" uid="uid://3xfm4cuo4vbw" path="res://Resources/TowerTypes/discount_tower.tres" id="17_xaf0y"]
+[ext_resource type="Resource" uid="uid://crtm11is5r437" path="res://Resources/TowerTypes/plant_tower.tres" id="18_khxfw"]
+[ext_resource type="Resource" uid="uid://bikwghutoewx" path="res://Resources/TowerTypes/piercing_tower.tres" id="19_woroa"]
+[ext_resource type="Resource" uid="uid://bwmaepwjekhy0" path="res://Resources/TowerTypes/exposure_tower.tres" id="20_j6xac"]
+[ext_resource type="Resource" uid="uid://cyxcrtry83h62" path="res://Resources/TowerTypes/multi_tower.tres" id="21_1il1r"]
+[ext_resource type="PackedScene" uid="uid://c82mq58sxbpmp" path="res://Scenes/Towers/FreezeTower.tscn" id="25_46gif"]
+[ext_resource type="PackedScene" uid="uid://cyhwjwnesqn71" path="res://Scenes/Towers/FearTower.tscn" id="26_8wba7"]
+[ext_resource type="PackedScene" uid="uid://dy5r4ungr15qj" path="res://Scenes/Towers/SupportTower.tscn" id="27_cj702"]
+[ext_resource type="PackedScene" uid="uid://dschi4iroqtte" path="res://Scenes/Towers/MultiTower.tscn" id="28_t4ua7"]
+[ext_resource type="PackedScene" uid="uid://bneqaxh6gekw6" path="res://Scenes/Towers/MapTower.tscn" id="28_tdou2"]
+[ext_resource type="PackedScene" uid="uid://buwhijgcxxm8t" path="res://Scenes/Towers/PlantTower.tscn" id="30_e4yko"]
+[ext_resource type="PackedScene" uid="uid://cmbdutawpq2lm" path="res://Scenes/Towers/PiercingTower.tscn" id="30_nqo8c"]
+[ext_resource type="PackedScene" uid="uid://b2cg0f07ye3vi" path="res://Scenes/Towers/PoisonTower.tscn" id="31_plwgl"]
+[ext_resource type="PackedScene" uid="uid://ie0ktmav3q1q" path="res://Scenes/Towers/SniperTower.tscn" id="33_8ie1l"]
+[ext_resource type="PackedScene" uid="uid://cjsmhtw3phx6i" path="res://Scenes/Towers/SplashTower.tscn" id="34_tuy8g"]
+
+[resource]
+script = ExtResource("1_2ic6y")
+build_version = "1.0.0.41"
+tower_types = Array[ExtResource("13_hl5lj")]([ExtResource("7_8rrf0"), ExtResource("8_h081j"), ExtResource("7_wkhea"), ExtResource("12_svc1p"), ExtResource("13_jfqrf"), ExtResource("12_bt5ps"), ExtResource("15_ynvsh"), ExtResource("12_vt4mm"), ExtResource("17_xaf0y"), ExtResource("18_khxfw"), ExtResource("19_woroa"), ExtResource("20_j6xac"), ExtResource("21_1il1r")])
+enemy_types = Array[ExtResource("1_jmcs7")]([ExtResource("2_nrxeh"), ExtResource("3_tbx88"), ExtResource("4_ny31m"), ExtResource("5_siksl"), ExtResource("6_yanni")])
+tower_types_objects = {
+"base": ExtResource("1_jt38e"),
+"discount": ExtResource("12_4bgey"),
+"fear": ExtResource("26_8wba7"),
+"freeze": ExtResource("25_46gif"),
+"map": ExtResource("28_tdou2"),
+"multi": ExtResource("28_t4ua7"),
+"piercing": ExtResource("30_nqo8c"),
+"plant": ExtResource("30_e4yko"),
+"poison": ExtResource("31_plwgl"),
+"sniper": ExtResource("33_8ie1l"),
+"splash": ExtResource("34_tuy8g"),
+"support": ExtResource("27_cj702")
+}
+username_chat_colors = Array[Color]([Color(0.713726, 0.352941, 0.792157, 1), Color(0.619608, 0.705882, 0.145098, 1), Color(0, 0.745098, 0.8, 1), Color(0.356863, 0.384314, 0.792157, 1)])
+level_progression = Array[ExtResource("7_u464p")]([ExtResource("5_ohlom"), ExtResource("1_6m64g"), ExtResource("2_wj0g8"), ExtResource("6_eu5s5")])
+num_rounds_per_level = 3
+text_chat_enabled = true
+voice_chat_enabled = false
+push_to_talk = false
+shared_player_resources = true
+can_modify_other_players_towers = false
+show_enemy_preview_panel = true
+is_rts = false
+show_tower_name = false
+show_tower_description = true
+continue_to_next_level_automatically = false
+show_coordinate_grid_on_map = true
+experiment_reference_id = ""
+is_remote_exp = true
+nakama_server_key = "defaultkey"
+nakama_host = "<YOUR_SERVER_HERE"
+nakama_port = 7350
+nakama_scheme = "http"
+do_data_logging = false
+data_logging_server_url = "<YOUR_SERVER_HERE>"

@@ -1,0 +1,257 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2sx6ibo6hei2"]
+
+[ext_resource type="Script" path="res://Scenes/Chat/ChatBox.gd" id="1_26gnr"]
+[ext_resource type="PackedScene" uid="uid://cd0pipnrqacwb" path="res://UI/ChatLog.tscn" id="2_2mgk5"]
+[ext_resource type="Texture2D" uid="uid://2urc66b7xm5f" path="res://Art/chat_notification_icon.png" id="2_6ggqw"]
+[ext_resource type="Texture2D" uid="uid://di0t701vtphqe" path="res://Art/chat_no_new_msgs_icon.png" id="3_mgsp3"]
+[ext_resource type="Script" path="res://Scenes/Chat/LineEdit.gd" id="3_rmoab"]
+[ext_resource type="Script" path="res://Scenes/Chat/ScrollContainer.gd" id="6_ktnrh"]
+
+[node name="ChatBox" type="Control" node_paths=PackedStringArray("text_edit", "chat_log_vbox", "scroll_container", "text_edit_system", "chat_log_vbox_system", "scroll_container_system")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_26gnr")
+text_edit = NodePath("BG/TabContainer/Chat/HBoxContainer/TextEdit")
+chat_log_vbox = NodePath("BG/TabContainer/Chat/ScrollContainer/VBoxContainer")
+scroll_container = NodePath("BG/TabContainer/Chat/ScrollContainer")
+text_edit_system = NodePath("BG/TabContainer/System/HBoxContainer/TextEdit")
+chat_log_vbox_system = NodePath("BG/TabContainer/System/ScrollContainer/VBoxContainer")
+scroll_container_system = NodePath("BG/TabContainer/System/ScrollContainer")
+new_msgs_icon = ExtResource("2_6ggqw")
+no_new_msgs_icon = ExtResource("3_mgsp3")
+
+[node name="BG" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(400, 415)
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 331.09
+color = Color(0, 0, 0, 0.223529)
+
+[node name="TabContainer" type="TabContainer" parent="BG"]
+custom_minimum_size = Vector2(408, 412)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Chat" type="VBoxContainer" parent="BG/TabContainer"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BG/TabContainer/Chat"]
+custom_minimum_size = Vector2(2.08165e-12, 270.86)
+layout_mode = 2
+scroll_vertical = 19
+horizontal_scroll_mode = 0
+script = ExtResource("6_ktnrh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/TabContainer/Chat/ScrollContainer"]
+layout_mode = 2
+
+[node name="ChatLog" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+
+[node name="ChatLog2" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog3" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog4" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog5" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog6" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog7" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog8" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog9" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog10" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog11" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog12" parent="BG/TabContainer/Chat/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/TabContainer/Chat"]
+custom_minimum_size = Vector2(2.08165e-12, 104.69)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="BG/TabContainer/Chat/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+text = "blah blah blah blah blah blah blah lksdj;ldjsf lkdjfas;ldjkdsl;adskjffff"
+placeholder_text = "enter some text here!"
+max_length = 144
+script = ExtResource("3_rmoab")
+
+[node name="TextEdit" type="TextEdit" parent="BG/TabContainer/Chat/HBoxContainer"]
+custom_minimum_size = Vector2(333.52, 80)
+layout_mode = 2
+text = "text tesxtlsdjf lskjf ls;ajf  asdf asdf sd f;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf"
+placeholder_text = "enter text here"
+wrap_mode = 1
+
+[node name="Control" type="Control" parent="BG/TabContainer/Chat/HBoxContainer"]
+layout_mode = 2
+
+[node name="SendButton" type="Button" parent="BG/TabContainer/Chat/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 32.0
+offset_right = 90.0
+offset_bottom = 103.0
+scale = Vector2(0.68, 0.68)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Send"
+
+[node name="System" type="VBoxContainer" parent="BG/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 363)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BG/TabContainer/System"]
+custom_minimum_size = Vector2(2.08165e-12, 270.86)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("6_ktnrh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/TabContainer/System/ScrollContainer"]
+layout_mode = 2
+
+[node name="ChatLog" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+
+[node name="ChatLog2" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog3" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog4" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog5" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog6" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog7" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog8" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog9" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog10" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog11" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="ChatLog12" parent="BG/TabContainer/System/ScrollContainer/VBoxContainer" instance=ExtResource("2_2mgk5")]
+layout_mode = 2
+text = "some text here"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/TabContainer/System"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 104.69)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="BG/TabContainer/System/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+text = "blah blah blah blah blah blah blah lksdj;ldjsf lkdjfas;ldjkdsl;adskjffff"
+placeholder_text = "enter some text here!"
+max_length = 144
+script = ExtResource("3_rmoab")
+
+[node name="TextEdit" type="TextEdit" parent="BG/TabContainer/System/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(333.52, 80)
+layout_mode = 2
+text = "text tesxtlsdjf lskjf ls;ajf  asdf asdf sd f;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf text tesxtlsdjf lskjf ls;ajf ;lasdj a;sldf"
+placeholder_text = "enter text here"
+wrap_mode = 1
+
+[node name="Control" type="Control" parent="BG/TabContainer/System/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SendButton" type="Button" parent="BG/TabContainer/System/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 32.0
+offset_right = 90.0
+offset_bottom = 103.0
+scale = Vector2(0.68, 0.68)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Send"
+
+[connection signal="tab_changed" from="BG/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="tab_clicked" from="BG/TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="focus_entered" from="BG/TabContainer/Chat/HBoxContainer/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="BG/TabContainer/Chat/HBoxContainer/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="BG/TabContainer/Chat/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="focus_entered" from="BG/TabContainer/Chat/HBoxContainer/TextEdit" to="." method="_on_text_edit_focus_entered"]
+[connection signal="focus_exited" from="BG/TabContainer/Chat/HBoxContainer/TextEdit" to="." method="_on_text_edit_focus_exited"]
+[connection signal="mouse_entered" from="BG/TabContainer/Chat/HBoxContainer/TextEdit" to="." method="_on_text_edit_mouse_entered"]
+[connection signal="mouse_exited" from="BG/TabContainer/Chat/HBoxContainer/TextEdit" to="." method="_on_text_edit_mouse_exited"]
+[connection signal="pressed" from="BG/TabContainer/Chat/HBoxContainer/Control/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="focus_entered" from="BG/TabContainer/System/HBoxContainer/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="BG/TabContainer/System/HBoxContainer/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="BG/TabContainer/System/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="focus_entered" from="BG/TabContainer/System/HBoxContainer/TextEdit" to="." method="_on_text_edit_focus_entered"]
+[connection signal="focus_exited" from="BG/TabContainer/System/HBoxContainer/TextEdit" to="." method="_on_text_edit_focus_exited"]
+[connection signal="mouse_entered" from="BG/TabContainer/System/HBoxContainer/TextEdit" to="." method="_on_text_edit_mouse_entered"]
+[connection signal="mouse_exited" from="BG/TabContainer/System/HBoxContainer/TextEdit" to="." method="_on_text_edit_mouse_exited"]
+[connection signal="pressed" from="BG/TabContainer/System/HBoxContainer/Control/SendButton" to="." method="_on_send_button_pressed"]

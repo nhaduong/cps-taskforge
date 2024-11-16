@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsi6klfuaeyg5"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/WavePreview.gd" id="1_ieag6"]
+[ext_resource type="PackedScene" uid="uid://j6ulqxjpecbp" path="res://UI/wave_preview_single.tscn" id="2_oy57y"]
+
+[node name="WavePreview" type="Node2D" node_paths=PackedStringArray("previews_container")]
+script = ExtResource("1_ieag6")
+wave_preview_single = ExtResource("2_oy57y")
+previews_container = NodePath("ScrollContainer/PreviewsContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(375, 325)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PreviewsContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="WavePreviewSingle" parent="ScrollContainer/PreviewsContainer" instance=ExtResource("2_oy57y")]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+
+[node name="WavePreviewSingle2" parent="ScrollContainer/PreviewsContainer" node_paths=PackedStringArray("info_label") instance=ExtResource("2_oy57y")]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+info_label = NodePath("../WavePreviewSingle/Label")
+
+[node name="WavePreviewSingle3" parent="ScrollContainer/PreviewsContainer" node_paths=PackedStringArray("info_label") instance=ExtResource("2_oy57y")]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+info_label = NodePath("../WavePreviewSingle/Label")
+
+[node name="WavePreviewSingle4" parent="ScrollContainer/PreviewsContainer" node_paths=PackedStringArray("info_label") instance=ExtResource("2_oy57y")]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+info_label = NodePath("../WavePreviewSingle/Label")

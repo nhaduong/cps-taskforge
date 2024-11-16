@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddlst3dioru15"]
+
+[ext_resource type="Script" path="res://Scenes/Networking/Client/Client.gd" id="1_8amqg"]
+[ext_resource type="Script" path="res://Scenes/Networking/WebSocketClient.gd" id="2_4uwj1"]
+
+[node name="Client" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8amqg")
+
+[node name="WebSocketClient" type="Node" parent="."]
+script = ExtResource("2_4uwj1")
+supported_protocols = PackedStringArray("td-chat")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Connect" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+
+[node name="Connect" type="Button" parent="Panel/VBoxContainer/Connect"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/Connect/Connect"]
+clip_contents = false
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+offset_left = 12.0
+offset_right = 312.0
+offset_bottom = 200.0
+text = "Control"
+
+[node name="Send" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Send"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 2
+placeholder_text = "Enter some text to send..."
+
+[node name="Send" type="Button" parent="Panel/VBoxContainer/Send"]
+layout_mode = 2
+text = "Send"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(300, 800)
+layout_mode = 2
+text = "content here"
+
+[connection signal="connected_to_server" from="WebSocketClient" to="." method="_on_web_socket_client_connected_to_server"]
+[connection signal="connection_closed" from="WebSocketClient" to="." method="_on_web_socket_client_connection_closed"]
+[connection signal="message_received" from="WebSocketClient" to="." method="_on_web_socket_client_message_received"]
+[connection signal="pressed" from="Panel/VBoxContainer/Connect/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Send/Send" to="." method="_on_send_pressed"]

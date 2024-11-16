@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cd0pipnrqacwb"]
+
+[node name="ChatLog" type="RichTextLabel"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "some text here
+and some other text here"
+fit_content = true
+scroll_following = true

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://cbybm2xuehwpv"]
+
+[ext_resource type="Resource" uid="uid://b530wdug52y0s" path="res://Resources/Tutorial/Level0Grid.tres" id="1_6qbu7"]
+[ext_resource type="PackedScene" uid="uid://dit8biqdwfqu1" path="res://Scenes/Maps/FinalLevels/Tutorial.tscn" id="2_nlgiy"]
+[ext_resource type="Script" path="res://Resources/LevelData.gd" id="3_yciu4"]
+
+[resource]
+script = ExtResource("3_yciu4")
+Gold_autobattler = 4000
+Gold = 5000
+Health = 10
+AvailableUnits = Array[Dictionary]([])
+Map = ExtResource("2_nlgiy")
+grid = ExtResource("1_6qbu7")
+valid_buy_tiles = Array[Vector2i]([Vector2i(1, 1)])
+wave_timer_minutes = 1
+wave_timer_seconds = 33
+wave_timer_minutes_autobattler = 5
+wave_timer_seconds_autobattler = 0
